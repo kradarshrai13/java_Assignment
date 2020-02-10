@@ -1,17 +1,34 @@
-class MyCalculatorBaseClass {
-    // mind the new scope!
-    protected void verifyOperandsPreconditions(int n, int p) throws Exception {
-        if(n==0 && p==0) {
-            throw new Exception("n and p should not be zero.");
-        } else if(n<0 || p<0) {
-            throw new Exception("n or p should not be negative.");
-        } 
+import java.util.*;
+import java.util.Scanner;
+
+class myCalculator{
+    int power(int n, int p) throws Exception{
+        if(n<0 || p<0)
+            throw new Exception("n and p should be non-negative");
+        return (int)Math.pow((double)n,(double)p);
     }
 }
 
-class MyCalculator extends MyCalculatorBaseClass {       
-    long power(int n, int p) throws Exception {
-        verifyOperandsPreconditions(n, p); // call to base class method
-        return (long)Math.pow(n, p);
+class Solution{
+
+    public static void main(String []argh)
+    {
+        Scanner in = new Scanner(System.in);
+
+        while(in.hasNextInt())
+        {
+            int n = in.nextInt();
+            int p = in.nextInt();
+            myCalculator M = new myCalculator();
+            try
+            {
+                System.out.println(M.power(n,p));
+            }
+            catch(Exception e)
+            {
+                System.out.println(e);
+            }
+        }
+
     }
 }
