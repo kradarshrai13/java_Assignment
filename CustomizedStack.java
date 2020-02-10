@@ -29,8 +29,6 @@ class StackEmptyException extends RuntimeException {
 }
  
  
- 
-/** Copyright (c), AnkitMittal JavaMadeSoEasy.com */ 
 /**
  * Stack class
  */
